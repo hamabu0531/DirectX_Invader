@@ -31,7 +31,7 @@ int Shot_Calc(Shot_t* Shot, int player_x) {
 	if (Shot->y == 0) {
 		Shot->flag = 0;
 	}
-	return Shot->x, Shot->y;
+	return Shot->y;
 }
 
 // •`‰æ‚·‚é
