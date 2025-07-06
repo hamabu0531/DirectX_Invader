@@ -5,6 +5,8 @@
 #include "Game.h"
 #include <stdlib.h>
 
+int xSpeed = 2,  ySpeed = 2;
+
 // ‰Šú‰»‚ð‚·‚é
 void Enemy_Initialize(Enemy_t* Enemy, int x, int y) {
 	Enemy->Image = LoadGraph("images/ufo.png");
@@ -22,19 +24,19 @@ int Enemy_Calc(Enemy_t* Enemy, Shot_t* Shot) {
 	// “®‚«
 	if (Enemy->state == 0) {
 		if (Enemy->e_count > step + rand() % 5) {
-			Enemy->y++;
+			Enemy->y += ySpeed;
 			Enemy->rl++;
 			Enemy->e_count = 0;
 		}
 		else if (Enemy->rl % 2 == 0) {
-			Enemy->x++;
+			Enemy->x += xSpeed;
 			if (Enemy->x > WIDTH) {
 				Enemy->x = WIDTH - 1;
 			}
 			Enemy->e_count++;
 		}
 		else if (Enemy->rl % 2 != 0) {
-			Enemy->x--;
+			Enemy->x -= xSpeed;
 			if (Enemy->x < 0) {
 				Enemy->x = 0 + 1;
 			}
@@ -42,7 +44,7 @@ int Enemy_Calc(Enemy_t* Enemy, Shot_t* Shot) {
 		}
 	}
 
-	// Hit
+	// “–‚½‚è”»’è
 	if (Enemy->state == 0) {
 		if (Enemy->x < Shot->x + 6 && Shot->x + 7 < Enemy->x + 28 && Enemy->y < Shot->y + 5 && Shot->y + 5 < Enemy->y + 16
 			&& Enemy->x > 0 && Enemy->x < WIDTH && Enemy->y > 0 && Enemy->y < HEIGHT) {
@@ -51,7 +53,7 @@ int Enemy_Calc(Enemy_t* Enemy, Shot_t* Shot) {
 			Enemy->state = 1;
 		}
 	}
-	// bom
+	// ”í’e
 	if (Enemy->state > 0 && Enemy->state < 10) {
 		Enemy->state++;
 		if (Enemy->state == 10) {
@@ -59,7 +61,7 @@ int Enemy_Calc(Enemy_t* Enemy, Shot_t* Shot) {
 			Enemy->state = 11;
 		}
 	}
-	// line over
+	// ƒQ[ƒ€ƒI[ƒo[(“G‚ª‰º‚Ü‚Å—ˆ‚½‚Æ‚«)
 	if (Enemy->state == 0 && Enemy->y > HEIGHT) {
 		Enemy->state = 12;
 	}

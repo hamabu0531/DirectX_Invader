@@ -59,15 +59,10 @@ SCENE gamePlay() {
 	while (ScreenFlip() == 0 && ProcessMessage() == 0 && ClearDrawScreen() == 0) {
 		Keyboard_Update();
 
-		Player_Calc(&Player);
+		int px = Player_Calc(&Player);
 		Player_Graph(Player);
-
-		counter = 0;
-		if (!counter) {
-			Shot_Calc(&Shot, Player_Calc(&Player));
-			Shot_Graph(Shot);
-		}
-		counter++;
+		Shot_Calc(&Shot, px);
+		Shot_Graph(Shot);
 		bool exist = true;
 		for(int i=0; i<SIZE(Enemy); ++i) {
 			int e_stat = Enemy_Calc(Enemy + i, &Shot);

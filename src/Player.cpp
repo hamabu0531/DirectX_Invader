@@ -1,6 +1,9 @@
 #include "DXLib.h"
 #include "Player.h"
 #include "keyboard.h"
+#include "Game.h"
+
+int speed = 5;
 
 // ‰Šú‰»‚ð‚·‚é
 void Player_Initialize(Player_t* Player, int x, int y) {
@@ -12,10 +15,15 @@ void Player_Initialize(Player_t* Player, int x, int y) {
 // “®‚«‚ðŒvŽZ‚·‚é(“ü—Í‚É‰ž‚¶‚Ä¶‰E‚ÉˆÚ“®)
 int Player_Calc(Player_t* Player) {
 	if (Keyboard_Get(KEY_INPUT_RIGHT) > 0) {
-		Player->x += 3;
+		if (Player->x < WIDTH-25) {
+			Player->x += speed;
+		}
 	}
 	if (Keyboard_Get(KEY_INPUT_LEFT) > 0) {
-		Player->x -= 3;
+		if (Player->x > 0) {
+			Player->x -= speed;
+		}
+
 	}
 	return Player->x;
 }

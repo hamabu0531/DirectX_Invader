@@ -19,18 +19,18 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Enemy.cpp" />
-    <ClCompile Include="keyboard.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="Player.cpp" />
-    <ClCompile Include="Shot.cpp" />
+    <ClCompile Include="src\Enemy.cpp" />
+    <ClCompile Include="src\keyboard.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Player.cpp" />
+    <ClCompile Include="src\Shot.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Enemy.h" />
-    <ClInclude Include="Game.h" />
-    <ClInclude Include="keyboard.h" />
-    <ClInclude Include="Player.h" />
-    <ClInclude Include="Shot.h" />
+    <ClInclude Include="src\Enemy.h" />
+    <ClInclude Include="src\Game.h" />
+    <ClInclude Include="src\keyboard.h" />
+    <ClInclude Include="src\Player.h" />
+    <ClInclude Include="src\Shot.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

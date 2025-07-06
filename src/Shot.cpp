@@ -17,6 +17,8 @@ void Shot_Initialize(Shot_t* Shot, int x, int y) {
 // “®‚«‚ðŒvŽZ‚·‚é
 int Shot_Calc(Shot_t* Shot, int player_x) {
 	if (Keyboard_Get(KEY_INPUT_SPACE) > 0 && !Shot->flag) {
+		Shot->x = player_x + offset;
+		Shot->y = PLAYER_POS_Y;
 		Shot->flag = 1;
 	}
 	else if (Shot->flag) {

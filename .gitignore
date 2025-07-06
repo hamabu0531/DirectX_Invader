@@ -34,3 +34,4 @@ Makefile
 *.tmp
 *.cache
 *.log
+Log.*
